@@ -5,30 +5,632 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sheryl Paul</title>
     <style>
+        :root {
+            --red: #990000;
+            --red-light: #b30000;
+            --dark: #1a1a1a;
+            --mid: #2c2c2c;
+            --border: #3a3a3a;
+            --text: #e0e0e0;
+            --text-muted: #999;
+            --text-bright: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #0f0f0f;
-            color: #e0e0e0;
+        html {
+            scroll-behavior: smooth;
         }
 
-        h1 {
-            font-size: 2.5rem;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.1rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: var(--text-bright);
+        }
+
+        /* HERO */
+        #hero {
+            padding: 7rem 2rem 4rem;
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-bright);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--red);
+            margin-top: 0.3rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-text p {
+            font-size: 0.97rem;
+            color: var(--text);
+            max-width: 620px;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.82rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .links a:hover {
+            border-color: var(--red);
+            color: var(--text-bright);
+        }
+
+        .links a svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* SECTIONS */
+        .section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .section h3 {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 1.8rem;
+        }
+
+        /* RESEARCH AREAS */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .research-card {
+            background: var(--mid);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.2rem 1.4rem;
+        }
+
+        .research-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 0.4rem;
+        }
+
+        .research-card p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* PUBLICATIONS */
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .pub {
+            border-left: 3px solid var(--border);
+            padding-left: 1.2rem;
+            transition: border-color 0.2s;
+        }
+
+        .pub:hover {
+            border-left-color: var(--red);
+        }
+
+        .pub-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            line-height: 1.4;
+        }
+
+        .pub-venue {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--red);
+            margin-top: 0.2rem;
+        }
+
+        .pub-authors {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+        }
+
+        .pub-authors strong {
+            color: var(--text);
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.1rem 0.5rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .badge-award {
+            background: rgba(153, 0, 0, 0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(153, 0, 0, 0.4);
+        }
+
+        .badge-pending {
+            background: rgba(100, 100, 100, 0.2);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        /* EDUCATION */
+        .edu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+        .edu-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.5rem;
+        }
+
+        .edu-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-bright);
+        }
+
+        .edu-item .institution {
+            font-size: 0.88rem;
+            color: var(--red);
+            font-weight: 500;
+            margin-top: 0.1rem;
+        }
+
+        .edu-item .date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .edu-item .grade {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .edu-item ul {
+            grid-column: 1 / -1;
+            list-style: none;
+            margin-top: 0.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .edu-item ul li {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .edu-item ul li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--border);
+        }
+
+        /* EXPERIENCE */
+        .exp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.2rem;
+        }
+
+        .exp-item h4 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-bright);
+        }
+
+        .exp-item .org {
+            font-size: 0.85rem;
+            color: var(--red);
+            font-weight: 500;
+        }
+
+        .exp-item .date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .exp-item p {
+            grid-column: 1 / -1;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        /* MISC */
+        .misc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .misc-list li {
+            font-size: 0.87rem;
+            color: var(--text);
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .misc-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-size: 0.7rem;
+            top: 0.15rem;
+        }
+
+        .misc-list li strong {
+            color: var(--text-bright);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .hero-text h1 { font-size: 2rem; }
+            nav ul li a { padding: 0.8rem 0.6rem; font-size: 0.75rem; }
+            .edu-item, .exp-item { grid-template-columns: 1fr; }
+            .edu-item .date, .exp-item .date { text-align: left; }
         }
     </style>
 </head>
 <body>
-    <h1>Sheryl Paul</h1>
+
+<nav>
+    <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#misc">Misc</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-text">
+        <h1>Sheryl Paul</h1>
+        <h2>PhD Candidate, Computer Science &mdash; University of Southern California</h2>
+        <p>Multi-agent and game-theoretic models of population dynamics in complex sociotechnical systems, with applications to opinion formation, transportation and mobility systems, and safety-constrained autonomous agents.</p>
+        <div class="links">
+            <a href="mailto:sherylpaul2402@gmail.com">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                Email
+            </a>
+            <a href="https://www.linkedin.com/in/sheryl-paul-2402/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57A1.46 1.46 0 0 1 14.38 12.11A1.46 1.46 0 0 1 15.84 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://scholar.google.com/citations?user=PeJsQDUAAAAJ&hl=en" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l4 2.18V17h2v-4.82L9 13.36V17c0 1.1 1.34 2 3 2s3-.9 3-2v-3.64l4-2.18V17h2V11.18L23 9 12 3zm4.5 8.18L12 13.5l-4.5-2.32L12 8.82l4.5 2.36z"/></svg>
+                Google Scholar
+            </a>
+            <a href="https://cps-vida.github.io/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93m6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                CPS-VIDA Lab
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="section">
+    <h3>Current Research</h3>
+    <div class="research-grid">
+        <div class="research-card">
+            <h4>Information Interventions in Networked Populations</h4>
+            <p>Control- and game-theoretic models, opinion dynamics, feasibility limits, ethical constraints, information interventions.</p>
+        </div>
+        <div class="research-card">
+            <h4>Collective Behavior and Policy Adaptation</h4>
+            <p>Game-theoretic models of environmental, infrastructural, and policy shifts in transportation and mobility systems.</p>
+        </div>
+        <div class="research-card">
+            <h4>Formal Methods in Multi-Agent Systems</h4>
+            <p>Signal Temporal Logic (STL), STL-GO, control synthesis, multi-agent systems.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="section">
+    <h3>Research &amp; Publications</h3>
+    <div class="pub-list">
+
+        <div class="pub">
+            <div class="pub-title">
+                Online Control of Opinion Dynamics
+            </div>
+            <div class="pub-venue">ACC 2026</div>
+            <div class="pub-authors"><strong>S. Paul</strong>, L. C. Juarez, J. Deshmukh, K. Savla</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">
+                Monitoring Spatially Distributed Cyber-Physical Systems with Alternating Finite Automata
+                <span class="badge badge-award">Best Paper &mdash; HSCC 2025</span>
+            </div>
+            <div class="pub-venue">HSCC 2025</div>
+            <div class="pub-authors">A. Balakrishnan, <strong>S. Paul</strong>, L. Nenzi, S. Silvetti, J. Deshmukh</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">
+                ABM-SIRTEM: A Hybrid Agent-Based and Epidemiological Model for Pandemic Response
+                <span class="badge badge-pending">Under Submission</span>
+            </div>
+            <div class="pub-venue"></div>
+            <div class="pub-authors"><strong>S. Paul</strong>, S. J. Williams, P. K. Biswas, G. Pedrielli, J. Deshmukh</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">
+                Multi-Agent Planning with Spatio-Temporal and Topological Constraints
+                <span class="badge badge-pending">Under Submission</span>
+            </div>
+            <div class="pub-venue"></div>
+            <div class="pub-authors"><strong>S. Paul</strong>, V. Kudalkar, A. Balakrishnan, L. Lindemann, A. Speranzon, J. Deshmukh</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">Evolutionary Adaptation of Policies for Environmental Shifts</div>
+            <div class="pub-venue">European Conference on Artificial Intelligence (ECAI), 2024</div>
+            <div class="pub-authors"><strong>S. Paul</strong>, J. Deshmukh</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">Multi-Agent Pathfinding for Timed Tasks using Evolutionary Techniques</div>
+            <div class="pub-venue">QEST-FORMATS, 2024</div>
+            <div class="pub-authors"><strong>S. Paul</strong>, A. Balakrishnan, X. Qin, J. Deshmukh</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">Systematic Translation from Natural Language Robot Task Descriptions to STL</div>
+            <div class="pub-venue">AISoLA, 2024</div>
+            <div class="pub-authors">S. Mohammadinejad, <strong>S. Paul</strong>, Y. Xia, V. Kudulkar, J. Deshmukh</div>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">Detection of Breast Cancer from Mammograms using a Hybrid Approach of Deep Learning and Linear Classification</div>
+            <div class="pub-venue">ICSET (IEEE), 2018</div>
+            <div class="pub-authors"><strong>S. Paul</strong>, D. Gala, S. Agrawal, R. Rangnekar, D. Kalbande</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+    <h3>Education</h3>
+    <div class="edu-list">
+
+        <div class="edu-item">
+            <div>
+                <h4>PhD, Computer Science</h4>
+                <div class="institution">University of Southern California</div>
+            </div>
+            <div>
+                <div class="date">2019 &ndash; 2026</div>
+                <div class="grade">GPA 3.87 / 4.00</div>
+            </div>
+            <ul>
+                <li>Research: Control and game-theoretic models for regulating multi-agent and networked sociotechnical systems, with emphasis on information interventions, safety constraints, and collective behavior.</li>
+                <li>Coursework: Theory &amp; Algorithms for Formal Verification, Formal Methods for Robotics, Advanced Algorithms, Network Economics &amp; Games, Computer-Aided Verification</li>
+            </ul>
+        </div>
+
+        <div class="edu-item">
+            <div>
+                <h4>MSc, Computer Science</h4>
+                <div class="institution">University of Oxford</div>
+            </div>
+            <div>
+                <div class="date">2018 &ndash; 2019</div>
+                <div class="grade">2:1 &nbsp;|&nbsp; 1:1</div>
+            </div>
+            <ul>
+                <li>Dissertation: The Emergence of Social Norms in Evolutionary Games</li>
+                <li>Coursework: Computational Game Theory, Artificial Intelligence, Machine Learning, Advanced Database Systems, Computers in Society</li>
+            </ul>
+        </div>
+
+        <div class="edu-item">
+            <div>
+                <h4>BE, Computer Engineering</h4>
+                <div class="institution">University of Mumbai</div>
+            </div>
+            <div>
+                <div class="date">2014 &ndash; 2018</div>
+                <div class="grade">9.79 / 10.00</div>
+            </div>
+            <ul>
+                <li>Project: Heterogeneous Clustering for Universal Recommendation Generation <em>(Patent published)</em></li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+    <h3>Professional Experience</h3>
+    <div class="exp-list">
+
+        <div class="exp-item">
+            <div>
+                <h4>Teaching Assistant</h4>
+                <div class="org">University of Southern California</div>
+            </div>
+            <div class="date">Spring 2025, Fall 2024</div>
+            <p>Computer Systems &middot; Autonomous Cyber-physical Systems</p>
+        </div>
+
+        <div class="exp-item">
+            <div>
+                <h4>Research Assistant</h4>
+                <div class="org">University of Oxford &mdash; Dept. of Social Policy and Intervention</div>
+            </div>
+            <div class="date">2018 &ndash; 2019</div>
+        </div>
+
+        <div class="exp-item">
+            <div>
+                <h4>Technical Analyst Intern</h4>
+                <div class="org">Credit Suisse Investment Bank</div>
+            </div>
+            <div class="date">2017</div>
+        </div>
+
+        <div class="exp-item">
+            <div>
+                <h4>Technical Intern</h4>
+                <div class="org">Gromor Fintech</div>
+            </div>
+            <div class="date">2016 &ndash; 2017</div>
+        </div>
+
+        <div class="exp-item">
+            <div>
+                <h4>Teaching Assistant</h4>
+                <div class="org">University of Mumbai</div>
+            </div>
+            <div class="date">2016 &ndash; 2017</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- MISC -->
+<section id="misc" class="section">
+    <h3>Miscellaneous</h3>
+    <ul class="misc-list">
+        <li><strong>British Council Scholar (Oxford)</strong> &mdash; Full tuition scholarship for MSc at Oxford</li>
+        <li><strong>Peer Reviewer</strong> &mdash; RV, L4DC, VMCAI, AAAI, ICCPS, CAV, IEEE-TASE, ACC</li>
+        <li>Poster presentations at GC Women in CS (2023) and USC-AAI (2023&ndash;2025)</li>
+        <li>NASA Formal Methods Volunteer (2022)</li>
+        <li>Vocal Arts, USC Thornton School of Music (Grade A, 4 semesters)</li>
+        <li>Community volunteering: Union Rescue Mission, School on Wheels, Dream Center LA</li>
+    </ul>
+</section>
+
+<footer>
+    &copy; 2025 Sheryl Paul &nbsp;&middot;&nbsp; Los Angeles, CA
+</footer>
+
 </body>
 </html>
