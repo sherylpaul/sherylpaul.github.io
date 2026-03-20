@@ -6,25 +6,19 @@
     <title>Sheryl Paul</title>
     <style>
         :root {
-            --red: #7a0000;
-            --red-light: #9b0000;
+            --red: #8b1a1a;
+            --red-light: #a82020;
+            --red-faint: rgba(139, 26, 26, 0.07);
             --dark: #f7f5f2;
-            --mid: #edeae5;
-            --border: #d6d1c9;
+            --mid: #f0ece6;
+            --border: #ddd8cf;
             --text: #2e2e2e;
             --text-muted: #6b6560;
             --text-bright: #111111;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -33,7 +27,6 @@
             line-height: 1.6;
         }
 
-        /* NAV */
         nav {
             position: fixed;
             top: 0;
@@ -48,7 +41,6 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 0;
             max-width: 960px;
             margin: 0 auto;
         }
@@ -65,11 +57,8 @@
             transition: color 0.2s;
         }
 
-        nav ul li a:hover {
-            color: var(--text-bright);
-        }
+        nav ul li a:hover { color: var(--text-bright); }
 
-        /* HERO */
         #hero {
             padding: 7rem 2rem 4rem;
             max-width: 960px;
@@ -79,18 +68,17 @@
             align-items: flex-start;
         }
 
-        .hero-photo {
-            flex-shrink: 0;
-            width: 180px;
-        }
+        .hero-photo { flex-shrink: 0; width: 170px; }
 
         .hero-photo img {
-            width: 180px;
-            height: 220px;
+            width: 170px;
+            height: 210px;
             object-fit: cover;
             object-position: center 15%;
-            border-radius: 6px;
+            border-radius: 8px;
             display: block;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08), 0 0 0 3px var(--dark), 0 0 0 4px var(--border);
         }
 
         .hero-text h1 {
@@ -101,7 +89,7 @@
         }
 
         .hero-text h2 {
-            font-size: 1.05rem;
+            font-size: 1.0rem;
             font-weight: 400;
             color: var(--red);
             margin-top: 0.3rem;
@@ -114,32 +102,29 @@
             color: var(--text);
             max-width: 620px;
             font-style: italic;
-            line-height: 1.7;
+            line-height: 1.75;
             margin-bottom: 1.5rem;
         }
 
-        .links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
+        .links { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 
         .links a {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.4rem 0.9rem;
+            padding: 0.38rem 0.85rem;
             border: 1px solid var(--border);
             border-radius: 4px;
             color: var(--text);
             text-decoration: none;
             font-size: 0.82rem;
-            transition: border-color 0.2s, color 0.2s;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
         }
 
         .links a:hover {
             border-color: var(--red);
-            color: var(--text-bright);
+            color: var(--red);
+            background: var(--red-faint);
         }
 
         .links a svg {
@@ -149,7 +134,17 @@
             flex-shrink: 0;
         }
 
-        /* SECTIONS */
+        .links a.cv-link {
+            border-color: var(--red);
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        .links a.cv-link:hover {
+            background: var(--red);
+            color: #fff;
+        }
+
         .section {
             max-width: 960px;
             margin: 0 auto;
@@ -158,15 +153,14 @@
         }
 
         .section h3 {
-            font-size: 1rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--red);
             margin-bottom: 1.8rem;
         }
 
-        /* RESEARCH AREAS */
         .research-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -174,49 +168,44 @@
         }
 
         .research-card {
-            background: var(--mid);
+            background: #fff;
             border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 1.2rem 1.4rem;
+            border-radius: 8px;
+            padding: 1.3rem 1.5rem;
+            border-top: 3px solid var(--red);
+            transition: box-shadow 0.2s;
         }
 
+        .research-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
         .research-card h4 {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
             color: var(--text-bright);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
         }
 
         .research-card p {
             font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.65;
+            margin-bottom: 0.9rem;
         }
 
-        .research-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.8rem;
-        }
+        .research-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
         .rtag {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 500;
-            padding: 0.18rem 0.55rem;
+            padding: 0.15rem 0.5rem;
             border-radius: 3px;
-            background: rgba(122, 0, 0, 0.08);
+            background: var(--red-faint);
             color: var(--red);
-            border: 1px solid rgba(122, 0, 0, 0.18);
-            letter-spacing: 0.01em;
+            border: 1px solid rgba(139, 26, 26, 0.15);
         }
 
-        /* PUBLICATIONS */
-        .pub-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
+        .pub-list { display: flex; flex-direction: column; gap: 1.3rem; }
 
         .pub {
             border-left: 3px solid var(--border);
@@ -224,12 +213,10 @@
             transition: border-color 0.2s;
         }
 
-        .pub:hover {
-            border-left-color: var(--red);
-        }
+        .pub:hover { border-left-color: var(--red); }
 
         .pub-title {
-            font-size: 0.95rem;
+            font-size: 0.93rem;
             font-weight: 600;
             color: var(--text-bright);
             line-height: 1.4;
@@ -242,31 +229,17 @@
             transition: border-color 0.2s, color 0.2s;
         }
 
-        .pub-title a:hover {
-            color: var(--red);
-            border-bottom-color: var(--red);
-        }
+        .pub-title a:hover { color: var(--red); border-bottom-color: var(--red); }
 
-        .pub-venue {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--red);
-            margin-top: 0.2rem;
-        }
+        .pub-venue { font-size: 0.8rem; font-weight: 600; color: var(--red); margin-top: 0.2rem; }
 
-        .pub-authors {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.15rem;
-        }
+        .pub-authors { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem; }
 
-        .pub-authors strong {
-            color: var(--text);
-        }
+        .pub-authors strong { color: var(--text); }
 
         .badge {
             display: inline-block;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             font-weight: 600;
             padding: 0.1rem 0.5rem;
             border-radius: 3px;
@@ -275,55 +248,28 @@
         }
 
         .badge-award {
-            background: rgba(153, 0, 0, 0.2);
-            color: #ff6b6b;
-            border: 1px solid rgba(153, 0, 0, 0.4);
+            background: rgba(139, 26, 26, 0.1);
+            color: var(--red);
+            border: 1px solid rgba(139, 26, 26, 0.22);
         }
 
         .badge-pending {
-            background: rgba(100, 100, 100, 0.2);
+            background: rgba(100,100,100,0.1);
             color: var(--text-muted);
             border: 1px solid var(--border);
         }
 
-        /* EDUCATION */
-        .edu-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.6rem;
-        }
+        .edu-list { display: flex; flex-direction: column; gap: 1.6rem; }
 
-        .edu-item {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 0.5rem;
-        }
+        .edu-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; }
 
-        .edu-item h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-bright);
-        }
+        .edu-item h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-bright); }
 
-        .edu-item .institution {
-            font-size: 0.88rem;
-            color: var(--red);
-            font-weight: 500;
-            margin-top: 0.1rem;
-        }
+        .edu-item .institution { font-size: 0.88rem; color: var(--red); font-weight: 500; margin-top: 0.1rem; }
 
-        .edu-item .date {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: right;
-            white-space: nowrap;
-        }
+        .edu-item .date { font-size: 0.8rem; color: var(--text-muted); text-align: right; white-space: nowrap; }
 
-        .edu-item .grade {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: right;
-        }
+        .edu-item .grade { font-size: 0.8rem; color: var(--text-muted); text-align: right; }
 
         .edu-item ul {
             grid-column: 1 / -1;
@@ -341,66 +287,23 @@
             position: relative;
         }
 
-        .edu-item ul li::before {
-            content: "–";
-            position: absolute;
-            left: 0;
-            color: var(--border);
-        }
+        .edu-item ul li::before { content: "–"; position: absolute; left: 0; color: var(--border); }
 
-        /* EXPERIENCE */
-        .exp-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
+        .exp-list { display: flex; flex-direction: column; gap: 1.2rem; }
 
-        .exp-item {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 0.2rem;
-        }
+        .exp-item { display: grid; grid-template-columns: 1fr auto; gap: 0.2rem; }
 
-        .exp-item h4 {
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: var(--text-bright);
-        }
+        .exp-item h4 { font-size: 0.92rem; font-weight: 600; color: var(--text-bright); }
 
-        .exp-item .org {
-            font-size: 0.85rem;
-            color: var(--red);
-            font-weight: 500;
-        }
+        .exp-item .org { font-size: 0.85rem; color: var(--red); font-weight: 500; }
 
-        .exp-item .date {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: right;
-            white-space: nowrap;
-        }
+        .exp-item .date { font-size: 0.8rem; color: var(--text-muted); text-align: right; white-space: nowrap; }
 
-        .exp-item p {
-            grid-column: 1 / -1;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 0.2rem;
-        }
+        .exp-item p { grid-column: 1 / -1; font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; }
 
-        /* MISC */
-        .misc-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.55rem;
-        }
+        .misc-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
 
-        .misc-list li {
-            font-size: 0.87rem;
-            color: var(--text);
-            padding-left: 1.2rem;
-            position: relative;
-        }
+        .misc-list li { font-size: 0.87rem; color: var(--text); padding-left: 1.2rem; position: relative; }
 
         .misc-list li::before {
             content: "▸";
@@ -411,11 +314,8 @@
             top: 0.15rem;
         }
 
-        .misc-list li strong {
-            color: var(--text-bright);
-        }
+        .misc-list li strong { color: var(--text-bright); }
 
-        /* FOOTER */
         footer {
             border-top: 1px solid var(--border);
             text-align: center;
@@ -424,7 +324,6 @@
             color: var(--text-muted);
         }
 
-        /* RESPONSIVE */
         @media (max-width: 600px) {
             .hero-text h1 { font-size: 2rem; }
             nav ul li a { padding: 0.8rem 0.6rem; font-size: 0.75rem; }
@@ -448,47 +347,45 @@
     </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
     <div class="hero-photo">
         <img src="sheryl-paul.jpg" alt="Sheryl Paul">
     </div>
     <div class="hero-text">
         <h1>Sheryl Paul</h1>
-        <h2>PhD Candidate, Computer Science &mdash; University of Southern California</h2>
-        <p>PhD Candidate in Computer Science at USC &middot; I work on mathematical models of how populations of agents &mdash; people, vehicles, drones &mdash; collectively adapt, coordinate (or don&rsquo;t!). My work sits at the intersection of game theory, control, and formal methods, with applications ranging from how opinions spread across social networks; specifications for drones in various scenarios; as well as robot and vehicle path planning.</p>
+        <h2>PhD Candidate, Computer Science · University of Southern California</h2>
+        <p>I work on mathematical models of how populations of agents -- people, vehicles, drones -- collectively adapt, coordinate (or don't!). My work sits at the intersection of game theory, control, and formal methods, with applications ranging from how opinions spread across social networks; specifications for drones in various scenarios; as well as robot and vehicle path planning.</p>
         <div class="links">
-            <a href="/cdn-cgi/l/email-protection#6112090413180d1100211412024f040514">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                <span class="__cf_email__" data-cfemail="6b18030e1912071b0a2b1e1808450e0f1e">[email&#160;protected]</span>
+            <a href="mailto:sherylpa@usc.edu">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                sherylpa@usc.edu
             </a>
-            <a href="/cdn-cgi/l/email-protection#87f4efe2f5feebf7e6f2ebb5b3b7b5c7e0eae6eeeba9e4e8ea">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                <span class="__cf_email__" data-cfemail="85f6ede0f7fce9f5e4f0e9b7b1b5b7c5e2e8e4ece9abe6eae8">[email&#160;protected]</span>
+            <a href="Sheryl_Resume-5.pdf" target="_blank" rel="noopener" class="cv-link">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM8 14h8v1.5H8V14zm0 3h8v1.5H8V17zm0-6h3v1.5H8V11z"/></svg>
+                CV
             </a>
             <a href="https://www.linkedin.com/in/sheryl-paul-2402/" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57A1.46 1.46 0 0 1 14.38 12.11A1.46 1.46 0 0 1 15.84 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57A1.46 1.46 0 0 1 14.38 12.11A1.46 1.46 0 0 1 15.84 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
                 LinkedIn
             </a>
             <a href="https://scholar.google.com/citations?user=PeJsQDUAAAAJ&hl=en" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l4 2.18V17h2v-4.82L9 13.36V17c0 1.1 1.34 2 3 2s3-.9 3-2v-3.64l4-2.18V17h2V11.18L23 9 12 3zm4.5 8.18L12 13.5l-4.5-2.32L12 8.82l4.5 2.36z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18V17h2v-4.82L9 13.36V17c0 1.1 1.34 2 3 2s3-.9 3-2v-3.64l4-2.18V17h2V11.18L23 9 12 3zm4.5 8.18L12 13.5l-4.5-2.32L12 8.82l4.5 2.36z"/></svg>
                 Google Scholar
             </a>
             <a href="https://cps-vida.github.io/" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93m6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93m6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 CPS-VIDA Lab
             </a>
         </div>
     </div>
 </section>
 
-<!-- RESEARCH -->
 <section id="research" class="section">
     <h3>Current Research</h3>
     <div class="research-grid">
         <div class="research-card">
             <h4>Opinion Dynamics &amp; Information Interventions</h4>
-            <p>Control- and game-theoretic models of how beliefs evolve in networked populations. Studying when and how external interventions can steer collective opinion &mdash; and what ethical and feasibility limits apply.</p>
+            <p>Control- and game-theoretic models of how beliefs evolve in networked populations. Studying when and how external interventions can steer collective opinion, and what ethical and feasibility limits apply.</p>
             <div class="research-tags">
                 <span class="rtag">opinion dynamics</span>
                 <span class="rtag">control theory</span>
@@ -506,7 +403,7 @@
         </div>
         <div class="research-card">
             <h4>Formal Methods in Multi-Agent Systems</h4>
-            <p>Using Signal Temporal Logic (STL) and automata-theoretic tools to specify, monitor, and synthesize safe behaviors in autonomous and cyber-physical systems &mdash; with guarantees that scale to multi-agent settings.</p>
+            <p>Using Signal Temporal Logic (STL) and automata-theoretic tools to specify, monitor, and synthesize safe behaviors in autonomous and cyber-physical systems, with guarantees that scale to multi-agent settings.</p>
             <div class="research-tags">
                 <span class="rtag">STL</span>
                 <span class="rtag">CPS</span>
@@ -516,7 +413,7 @@
         </div>
         <div class="research-card">
             <h4>Evolutionary Game Theory &amp; Population Dynamics</h4>
-            <p>How strategies, norms, and behaviors emerge and stabilize across populations of self-interested agents &mdash; with applications to policy design, mechanism design, and understanding social equilibria.</p>
+            <p>How strategies, norms, and behaviors emerge and stabilize across populations of self-interested agents, with applications to policy design, mechanism design, and understanding social equilibria.</p>
             <div class="research-tags">
                 <span class="rtag">EGT</span>
                 <span class="rtag">MARL</span>
@@ -526,7 +423,6 @@
     </div>
 </section>
 
-<!-- PUBLICATIONS -->
 <section id="publications" class="section">
     <h3>Research &amp; Publications</h3>
     <div class="pub-list">
@@ -553,7 +449,6 @@
                 ABM-SIRTEM: A Hybrid Agent-Based and Epidemiological Model for Pandemic Response
                 <span class="badge badge-pending">Under Submission</span>
             </div>
-            <div class="pub-venue"></div>
             <div class="pub-authors"><strong>S. Paul</strong>, S. J. Williams, P. K. Biswas, G. Pedrielli, J. Deshmukh</div>
         </div>
 
@@ -562,7 +457,6 @@
                 Multi-Agent Planning with Spatio-Temporal and Topological Constraints
                 <span class="badge badge-pending">Under Submission</span>
             </div>
-            <div class="pub-venue"></div>
             <div class="pub-authors"><strong>S. Paul</strong>, V. Kudalkar, A. Balakrishnan, L. Lindemann, A. Speranzon, J. Deshmukh</div>
         </div>
 
@@ -593,7 +487,6 @@
     </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education" class="section">
     <h3>Education</h3>
     <div class="edu-list">
@@ -645,7 +538,6 @@
     </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="section">
     <h3>Professional Experience</h3>
     <div class="exp-list">
@@ -662,7 +554,7 @@
         <div class="exp-item">
             <div>
                 <h4>Research Assistant</h4>
-                <div class="org">University of Oxford &mdash; Dept. of Social Policy and Intervention</div>
+                <div class="org">University of Oxford, Dept. of Social Policy and Intervention</div>
             </div>
             <div class="date">2018 &ndash; 2019</div>
         </div>
@@ -694,12 +586,21 @@
     </div>
 </section>
 
-<!-- MISC -->
 <section id="misc" class="section">
     <h3>Miscellaneous</h3>
     <ul class="misc-list">
-        <li><strong>British Council Scholar (Oxford)</strong> &mdash; Full tuition scholarship for MSc at Oxford</li>
-        <li><strong>Peer Reviewer</strong> &mdash; RV, L4DC, VMCAI, AAAI, ICCPS, CAV, IEEE-TASE, ACC</li>
+        <li><strong>British Council Scholar (Oxford)</strong> · Full tuition scholarship for MSc at Oxford</li>
+        <li><strong>Peer Reviewer</strong> · RV, L4DC, VMCAI, AAAI, ICCPS, CAV, IEEE-TASE, ACC</li>
         <li>Poster presentations at GC Women in CS (2023) and USC-AAI (2023&ndash;2025)</li>
         <li>NASA Formal Methods Volunteer (2022)</li>
-        <li>Vocal Arts, USC
+        <li>Vocal Arts, USC Thornton School of Music (Grade A, 4 semesters)</li>
+        <li>Community volunteering: Union Rescue Mission, School on Wheels, Dream Center LA</li>
+    </ul>
+</section>
+
+<footer>
+    &copy; 2025 Sheryl Paul &nbsp;&middot;&nbsp; Los Angeles, CA
+</footer>
+
+</body>
+</html>
