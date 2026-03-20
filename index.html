@@ -88,7 +88,7 @@
             width: 180px;
             height: 220px;
             object-fit: cover;
-            object-position: center top;
+            object-position: center 15%;
             border-radius: 6px;
             display: block;
         }
@@ -191,6 +191,24 @@
             font-size: 0.82rem;
             color: var(--text-muted);
             line-height: 1.6;
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+        }
+
+        .rtag {
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 0.18rem 0.55rem;
+            border-radius: 3px;
+            background: rgba(122, 0, 0, 0.08);
+            color: var(--red);
+            border: 1px solid rgba(122, 0, 0, 0.18);
+            letter-spacing: 0.01em;
         }
 
         /* PUBLICATIONS */
@@ -438,15 +456,15 @@
     <div class="hero-text">
         <h1>Sheryl Paul</h1>
         <h2>PhD Candidate, Computer Science &mdash; University of Southern California</h2>
-        <p>Multi-agent and game-theoretic models of population dynamics in complex sociotechnical systems, with applications to opinion formation, transportation and mobility systems, and safety-constrained autonomous agents.</p>
+        <p>PhD Candidate in Computer Science at USC &middot; I work on mathematical models of how populations of agents &mdash; people, vehicles, drones &mdash; collectively adapt, coordinate (or don&rsquo;t!). My work sits at the intersection of game theory, control, and formal methods, with applications ranging from how opinions spread across social networks; specifications for drones in various scenarios; as well as robot and vehicle path planning.</p>
         <div class="links">
-            <a href="mailto:sherylpa@usc.edu">
+            <a href="/cdn-cgi/l/email-protection#6112090413180d1100211412024f040514">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                sherylpa@usc.edu
+                <span class="__cf_email__" data-cfemail="6b18030e1912071b0a2b1e1808450e0f1e">[email&#160;protected]</span>
             </a>
-            <a href="mailto:sherylpaul2402@gmail.com">
+            <a href="/cdn-cgi/l/email-protection#87f4efe2f5feebf7e6f2ebb5b3b7b5c7e0eae6eeeba9e4e8ea">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                sherylpaul2402@gmail.com
+                <span class="__cf_email__" data-cfemail="85f6ede0f7fce9f5e4f0e9b7b1b5b7c5e2e8e4ece9abe6eae8">[email&#160;protected]</span>
             </a>
             <a href="https://www.linkedin.com/in/sheryl-paul-2402/" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57A1.46 1.46 0 0 1 14.38 12.11A1.46 1.46 0 0 1 15.84 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
@@ -469,16 +487,41 @@
     <h3>Current Research</h3>
     <div class="research-grid">
         <div class="research-card">
-            <h4>Information Interventions in Networked Populations</h4>
-            <p>Control- and game-theoretic models, opinion dynamics, feasibility limits, ethical constraints, information interventions.</p>
+            <h4>Opinion Dynamics &amp; Information Interventions</h4>
+            <p>Control- and game-theoretic models of how beliefs evolve in networked populations. Studying when and how external interventions can steer collective opinion &mdash; and what ethical and feasibility limits apply.</p>
+            <div class="research-tags">
+                <span class="rtag">opinion dynamics</span>
+                <span class="rtag">control theory</span>
+                <span class="rtag">networked systems</span>
+            </div>
         </div>
         <div class="research-card">
-            <h4>Collective Behavior and Policy Adaptation</h4>
-            <p>Game-theoretic models of environmental, infrastructural, and policy shifts in transportation and mobility systems.</p>
+            <h4>Collective Adaptation in Transportation &amp; Mobility</h4>
+            <p>Game-theoretic and agent-based models of how travelers and fleets adapt to infrastructure changes, congestion, and policy shifts. Bridging micro-level agent decisions to macro-level traffic equilibria.</p>
+            <div class="research-tags">
+                <span class="rtag">routing games</span>
+                <span class="rtag">Wardrop equilibrium</span>
+                <span class="rtag">agent-based models</span>
+            </div>
         </div>
         <div class="research-card">
             <h4>Formal Methods in Multi-Agent Systems</h4>
-            <p>Signal Temporal Logic (STL), STL-GO, control synthesis, multi-agent systems.</p>
+            <p>Using Signal Temporal Logic (STL) and automata-theoretic tools to specify, monitor, and synthesize safe behaviors in autonomous and cyber-physical systems &mdash; with guarantees that scale to multi-agent settings.</p>
+            <div class="research-tags">
+                <span class="rtag">STL</span>
+                <span class="rtag">CPS</span>
+                <span class="rtag">control synthesis</span>
+                <span class="rtag">path planning</span>
+            </div>
+        </div>
+        <div class="research-card">
+            <h4>Evolutionary Game Theory &amp; Population Dynamics</h4>
+            <p>How strategies, norms, and behaviors emerge and stabilize across populations of self-interested agents &mdash; with applications to policy design, mechanism design, and understanding social equilibria.</p>
+            <div class="research-tags">
+                <span class="rtag">EGT</span>
+                <span class="rtag">MARL</span>
+                <span class="rtag">replicator dynamics</span>
+            </div>
         </div>
     </div>
 </section>
@@ -659,14 +702,4 @@
         <li><strong>Peer Reviewer</strong> &mdash; RV, L4DC, VMCAI, AAAI, ICCPS, CAV, IEEE-TASE, ACC</li>
         <li>Poster presentations at GC Women in CS (2023) and USC-AAI (2023&ndash;2025)</li>
         <li>NASA Formal Methods Volunteer (2022)</li>
-        <li>Vocal Arts, USC Thornton School of Music (Grade A, 4 semesters)</li>
-        <li>Community volunteering: Union Rescue Mission, School on Wheels, Dream Center LA</li>
-    </ul>
-</section>
-
-<footer>
-    &copy; 2025 Sheryl Paul &nbsp;&middot;&nbsp; Los Angeles, CA
-</footer>
-
-</body>
-</html>
+        <li>Vocal Arts, USC
