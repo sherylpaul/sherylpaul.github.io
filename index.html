@@ -241,6 +241,70 @@
 
         .pub-authors strong { color: var(--text); }
 
+        .pub-details { margin-top: 0.7rem; }
+
+        .pub-details summary {
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--red);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            list-style: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            transition: background 0.2s, border-color 0.2s;
+            user-select: none;
+        }
+
+        .pub-details summary::-webkit-details-marker { display: none; }
+        .pub-details summary::marker { content: ""; }
+
+        .pub-details summary::before {
+            content: "\25B8";
+            font-size: 0.7rem;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .pub-details[open] summary::before { transform: rotate(90deg); }
+
+        .pub-details summary:hover {
+            background: var(--red-faint);
+            border-color: var(--red);
+        }
+
+        .pub-details[open] summary {
+            background: var(--red-faint);
+            border-color: var(--red);
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-abstract {
+            padding: 1rem 1.2rem;
+            background: #fff;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--red);
+            font-size: 0.86rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .pub-abstract p + p { margin-top: 0.7rem; }
+
+        .pub-abstract mark {
+            background: rgba(139, 26, 26, 0.13);
+            color: var(--red);
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
         .badge {
             display: inline-block;
             font-size: 0.68rem;
@@ -359,7 +423,7 @@
     <div class="hero-text">
         <h1>Sheryl Paul</h1>
         <h2>PhD Candidate, Computer Science · University of Southern California</h2>
-        <p>I work on mathematical models of how populations of agents -- people, vehicles, drones -- collectively adapt, coordinate (or don't!). My work sits at the intersection of game theory, control, and formal methods, with applications ranging from how opinions spread across social networks; specifications for drones in various scenarios; as well as robot and vehicle path planning.</p>
+        <p>My research is about how collective behavior emerges in multi-agent systems, and how we can specify, monitor, and steer that behavior with formal guarantees. I draw on control theory, formal methods, and game theory to connect what individual agents do to the population-level patterns they produce across opinion dynamics, transportation and mobility, formal methods for search and rescue settings, and population models with evolutionary game theory.</p>
         <div class="links">
             <a href="mailto:sherylpa@usc.edu">
                 <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -434,18 +498,32 @@
 
         <div class="pub">
             <div class="pub-title">
-                Neuro-Symbolic Multi-Agent Planning using Differentiable Spatio-Temporal Logic
+                Neuro-Symbolic Planning for Multi-Agent Systems using Differentiable Spatio-Temporal Logic
             </div>
             <div class="pub-venue">NeuS 2026</div>
             <div class="pub-authors">V. Kudalkar, <strong>S. Paul</strong>, N. Hashemi, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>Modern autonomous planning methods rely heavily on <mark>differentiable predictive models</mark> of agent and world dynamics, enabling gradient-based optimization through neural pipelines. In parallel, <mark>temporal logic</mark> formalisms provide expressive and unambiguous symbolic specifications of high-level task objectives. However, there is work to be done in unifying differentiable dynamics with expressive multi-agent spatio-temporal specifications, particularly in settings where the underlying interaction graph evolves with agent states.</p>
+                    <p>Hence, we present a <mark>neuro-symbolic framework</mark> for multi-agent planning under <mark>Spatio-Temporal Reach and Escape Logic (STREL)</mark> specifications. We introduce <mark>smooth adjacency graph constructions</mark> that enable differentiation through dynamic interaction topologies, and propose <mark>STREL-Net</mark>, a <mark>Graph Neural Network (GNN)</mark>-based exact encoding of STREL quantitative semantics for gradient-based trajectory optimization. We evaluate our method in a customized SwarmLab environment and compare against <mark>SMT</mark>- and <mark>MILP</mark>-based STREL synthesis approaches across multiple specifications, linear and non-linear dynamics, varying team sizes, and settings with and without quadratic optimization objectives. Across all configurations, our approach consistently achieves substantially lower runtimes and remains feasible even in regimes where MILP and SMT formulations either become intractable or fail to solve.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
             <div class="pub-title">
-                <a href="https://arxiv.org/abs/2603.17155" target="_blank" rel="noopener">Online Control of Opinion Dynamics</a>
+                <a href="https://arxiv.org/abs/2603.17155" target="_blank" rel="noopener">On Online Control of Opinion Dynamics</a>
             </div>
             <div class="pub-venue">ACC 2026</div>
             <div class="pub-authors"><strong>S. Paul</strong>, L. C. Juarez, J. Deshmukh, K. Savla</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p><mark>Networked multi-agent dynamical systems</mark> have been used to model how individual <mark>opinions evolve</mark> over time due to the opinions of other agents in the network. Particularly, such a model has been used to study how a planning agent can be used to <mark>steer opinions</mark> in a desired direction through repeated, <mark>budgeted interventions</mark>. In this paper, we consider the problem where individuals' <mark>susceptibilities</mark> to external influences are unknown.</p>
+                    <p>We propose an <mark>online algorithm</mark> that alternates between estimating this susceptibility parameter, and using the current estimate to drive the opinion to a desired target. We provide conditions that guarantee <mark>stability and convergence</mark> to the desired target opinion when the planning agent faces budgetary or temporal constraints. Our analysis shows that the key advantage of estimating the susceptibility parameter is that it helps achieve near-optimal convergence to the target opinion given a finite amount of intervention rounds, and, for a given intervention budget, quantifies how close the opinion can get to the desired target.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
@@ -454,74 +532,147 @@
             </div>
             <div class="pub-venue">QEST-FORMATS 2026</div>
             <div class="pub-authors"><strong>S. Paul</strong>*, V. Kudalkar*, A. Balakrishnan*, T. Wu, L. Lindemann, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p><mark>Spatio-Temporal Logic with Graph Operators (STL-GO)</mark> extends <mark>Signal Temporal Logic (STL)</mark> to multi-agent systems by introducing <mark>graph operators</mark> that reason about the number of neighboring agents satisfying a property, and multi-agent quantifiers. While Boolean semantics for STL-GO are well-defined, <mark>quantitative semantics</mark> have not been developed. Existing quantitative semantics for spatio-temporal logics such as <mark>STREL</mark> are insufficient for the counting constraints in STL-GO's graph operators.</p>
+                    <p>Thus, we develop quantitative semantics for STL-GO, as a <mark>layered algebraic construction</mark> that separates temporal aggregation from graph-operator aggregation (governed by an abstract accumulator with a monotone fold and readout). We prove that <mark>soundness and completeness</mark> of the full semantics reduce to monotonicity conditions on these components, and show that standard min-max and Boolean instantiations satisfy them automatically. We implement the framework and evaluate it on two multi-agent environments: a 2D bounded region with stochastic <mark>Dubins-car dynamics</mark> and a 3D <mark>Earth-satellite system</mark>, under four semantic instantiations, demonstrating the tradeoffs between accumulator choices and reporting scalability in the number of agents and time horizon.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
             <div class="pub-title">
-                Multi-Agent Planning with Spatio-Temporal and Topological Constraints
-                <span class="badge badge-pending">Under Submission</span>
+                Agent-Based Evolutionary Dynamics for Mixed Autonomy Weaving Ramps
             </div>
-            <div class="pub-venue">FMCAD 2026</div>
-            <div class="pub-authors"><strong>S. Paul</strong>, V. Kudalkar, A. Balakrishnan, L. Lindemann, A. Speranzon, J. Deshmukh</div>
+            <div class="pub-venue">CPHS 2026 <span class="badge badge-pending">Under Submission</span></div>
+            <div class="pub-authors"><strong>S. Paul</strong>, K. Wang, R. Li, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>Existing models of <mark>mixed-autonomy weaving ramps</mark> characterize how altruistic <mark>connected and automated vehicles (CAVs)</mark> can improve traffic efficiency at the population level, but provide limited insight into how such behavior emerges from decentralized vehicle interactions or how it is affected by finite populations, heterogeneous preferences, and imperfect information. We develop an <mark>agent-based model</mark> of a macroscopic weaving-ramp framework in which individual vehicles adapt their lane choices using an <mark>evolutionary game-theoretic</mark> update rule and altruism-based objectives, providing a microscopic interpretation of the original <mark>Wardrop model</mark>. We prove convergence of the <mark>decentralized dynamics</mark> to the unique <mark>equilibrium</mark> predicted by the macroscopic theory.</p>
+                    <p>Beyond reproducing aggregate equilibrium behavior, the framework enables the study of deployment-level questions that cannot be addressed by static analysis. Simulation results demonstrate close agreement with the macroscopic predictions while revealing how convergence rates, adaptation to changing traffic conditions, heterogeneous altruism levels among CAVs, and imperfect state information influence system performance and the distribution of altruistic burden across vehicles. These results provide a bridge between equilibrium traffic theory and decentralized mixed-autonomy deployment.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">
+                Multi-Agent Planning with Spatio-Temporal and Topological Constraints using STL-GO
+            </div>
+            <div class="pub-venue">FMCAD 2026 <span class="badge badge-pending">Under Submission</span></div>
+            <div class="pub-authors"><strong>S. Paul</strong>*, V. Kudalkar*, A. Balakrishnan, L. Lindemann, A. Speranzon, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>Multi-agent planning problems arise in a variety of engineering applications, such as <mark>multi-robot wildfire fighting</mark> and unmanned aerial inspection in factories. A particular challenge is the existence of <mark>spatio-temporal</mark> (i.e., when an agent should do what) and <mark>topological constraints</mark> (i.e., how agents should interact), as typically formalized via the notion of graphs. We focus here on <mark>spatio-temporal logic with graph operators (STL-GO)</mark>, a recent formalism that allows to reason over multiple agents and their topologies, such as sensing, communication, and task topologies.</p>
+                    <p>In this paper, we consider the problem of planning multi-agent paths that satisfy constraints written in STL-GO. We present two solutions to this problem based on <mark>mixed integer programming (MIP)</mark> and <mark>satisfiability modulo theory (SMT)</mark> solving with soundness guarantees. We provide a unified interface for specifying agents, their graph topologies, and the STL-GO specification, enabling seamless use of both methods and facilitating direct comparison between them. We evaluate both encodings on a <mark>multi-UAV search-and-rescue</mark> benchmark, ablating over team size and graph complexity highlighting the expressiveness of the proposed encodings under dynamic multi-graph interactions.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
             <div class="pub-title">
                 Topology-Aware Congestion Pricing: Demand-Robust Routing using the Forman&ndash;Ricci Curvature
-                <span class="badge badge-pending">Under Submission</span>
             </div>
-            <div class="pub-venue">CDC 2026</div>
+            <div class="pub-venue">CDC 2026 <span class="badge badge-pending">Under Submission</span></div>
             <div class="pub-authors"><strong>S. Paul</strong>, S. J. Williams, K. Wang, X. Qin, R. Li, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p><mark>Congestion pricing</mark> is a widely used tool for improving efficiency in <mark>transportation networks</mark>, where decentralized route choices by individual users can lead to significant system-level inefficiencies. A classical solution is <mark>Pigouvian pricing</mark>, which achieves the system optimum. However, it is inherently demand-dependent and can lose effectiveness under <mark>demand shifts</mark>, particularly on structurally critical <mark>bottleneck edges</mark>.</p>
+                    <p>We propose a topology-aware regularization of the <mark>Beckmann potential</mark>, whose minimizer characterizes the <mark>Wardrop equilibrium</mark> induced by selfish routing. Our approach augments precomputed Pigouvian tolls with a structural penalty derived from <mark>Forman&ndash;Ricci curvature (FRC)</mark>, which captures bottleneck structure and can be computed offline. We show that the resulting equilibrium is well-defined, and that increasing the regularization parameter reduces aggregate flow on penalized edges. We further show that on modular networks, FRC assigns the largest penalties to <mark>bridge edges</mark> that all inter-region traffic must traverse. Experiments on eight real-world networks under targeted and uniform demand perturbations show that the method reduces bottleneck flow while maintaining near-optimal efficiency. Compared to <mark>edge betweenness</mark>, FRC achieves comparable bottleneck reduction at substantially lower computational cost.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
             <div class="pub-title">
                 Multi-agent Planning in Stochastic Dynamic Environments under Partial Observability Guided by Spatio-temporal Logic Requirements
-                <span class="badge badge-pending">Under Submission</span>
             </div>
-            <div class="pub-venue">RV 2026</div>
-            <div class="pub-authors">V. Kudalkar*, <strong>S. Paul</strong>*, S. Bharambe, S. Shim, A. Speranzon, J. V. Deshmukh</div>
+            <div class="pub-venue">RV 2026 <span class="badge badge-pending">Under Submission</span></div>
+            <div class="pub-authors">V. Kudalkar*, <strong>S. Paul</strong>*, S. Bharambe, S. Shim, M. Castillo-Effen, A. Speranzon, S. Varadarajan, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>We consider the <mark>multi-agent path planning</mark> problem in dynamically changing environments under <mark>spatio-temporal specifications</mark>. Each agent operates under <mark>partial observability</mark>, perceiving only the local state of the environment. To address this challenge, we propose a <mark>centralized planning framework</mark> that takes in each agent's observations of the world. Spatio-temporal objectives are encoded as constraints over trajectories of the agents. We formulate path planning as a <mark>dynamic programming</mark> problem over joint observation space, and generate plans that maximize the probability of satisfying the given spatio-temporal specification. We demonstrate the effectiveness of our approach in a customized <mark>3D grid wildfire simulator</mark>.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
             <div class="pub-title">
                 <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:IjCSPb-OGe4C" target="_blank" rel="noopener">Monitoring Spatially Distributed Cyber-Physical Systems with Alternating Finite Automata</a>
-                <span class="badge badge-award">Best Paper &mdash; HSCC 2025</span>
             </div>
-            <div class="pub-venue">HSCC 2025</div>
-            <div class="pub-authors">A. Balakrishnan, <strong>S. Paul</strong>, L. Nenzi, S. Silvetti, J. Deshmukh</div>
+            <div class="pub-venue">HSCC 2025 <span class="badge badge-award">Best Paper</span></div>
+            <div class="pub-authors">A. Balakrishnan, <strong>S. Paul</strong>, S. Silvetti, L. Nenzi, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>Modern <mark>cyber-physical systems (CPS)</mark> can consist of various networked components and agents interacting and communicating with each other. In the context of <mark>spatially distributed CPS</mark>, these connections can be dynamically dependent on the spatial configuration of the various components and agents. In these settings, robust <mark>monitoring</mark> of the distributed components is vital to ensuring complex behaviors are achieved, and safety properties are maintained.</p>
+                    <p>To this end, we look at defining the <mark>automaton semantics</mark> for the <mark>Spatio-Temporal Reach and Escape Logic (STREL)</mark>, a formal logic designed to express and monitor spatio-temporal requirements over mobile, spatially distributed CPS. Specifically, STREL reasons about spatio-temporal behavior over <mark>dynamic weighted graphs</mark>. While STREL is endowed with well-defined qualitative and quantitative semantics, in this paper, we propose a novel construction of an <mark>alternating finite automata</mark>-based monitor for STREL specifications.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
             <div class="pub-title">
                 ABM-SIRTEM: A Hybrid Agent-Based and Epidemiological Model for Pandemic Response
-                <span class="badge badge-pending">Ongoing Work</span>
             </div>
+            <div class="pub-venue"><span class="badge badge-pending">Ongoing Work</span></div>
             <div class="pub-authors"><strong>S. Paul</strong>, S. J. Williams, P. K. Biswas, G. Pedrielli, J. Deshmukh</div>
         </div>
 
         <div class="pub">
-            <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:qjMakFHDy7sC" target="_blank" rel="noopener">Evolutionary Adaptation of Policies for Environmental Shifts</a></div>
+            <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:qjMakFHDy7sC" target="_blank" rel="noopener">Survival of the Fittest: Evolutionary Adaptation of Policies for Environmental Shifts</a></div>
             <div class="pub-venue">European Conference on Artificial Intelligence (ECAI), 2024</div>
-            <div class="pub-authors"><strong>S. Paul</strong>, J. Deshmukh</div>
+            <div class="pub-authors"><strong>S. Paul</strong>, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p><mark>Reinforcement learning (RL)</mark> has been successfully applied to solve the problem of finding obstacle-free paths for autonomous agents operating in stochastic and uncertain environments. However, when the underlying stochastic dynamics of the environment experiences drastic <mark>distribution shifts</mark>, the optimal policy obtained in the trained environment may be sub-optimal or may entirely fail in helping find goal-reaching paths for the agent. Approaches like <mark>domain randomization</mark> and <mark>robust RL</mark> can provide robust policies, but typically assume minor (bounded) distribution shifts.</p>
+                    <p>For substantial distribution shifts, retraining is an alternative approach. In this paper, we develop a novel approach called <mark>Evolutionary Robust Policy Optimization (ERPO)</mark>, an adaptive re-training algorithm inspired by <mark>evolutionary game theory (EGT)</mark>. ERPO learns an optimal policy for the shifted environment iteratively using a temperature parameter that controls the trade off between exploration and adherence to the old optimal policy. The policy update itself is an instantiation of the <mark>replicator dynamics</mark> used in EGT. We show that under fairly common sparsity assumptions on rewards, ERPO converges to the optimal policy in the shifted environment, and empirically outperforms popular RL and deep RL algorithms (<mark>PPO, A3C, DQN</mark>) across many path-finding scenarios.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
-            <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener">Multi-Agent Pathfinding for Timed Tasks using Evolutionary Techniques</a></div>
+            <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener">Multi-agent Path Finding for Timed Tasks using Evolutionary Games</a></div>
             <div class="pub-venue">QEST-FORMATS, 2024</div>
-            <div class="pub-authors"><strong>S. Paul</strong>, A. Balakrishnan, X. Qin, J. Deshmukh</div>
+            <div class="pub-authors"><strong>S. Paul</strong>, A. Balakrishnan, X. Qin, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>Autonomous <mark>multi-agent systems</mark> such as hospital robots and package delivery drones often operate in highly uncertain environments and are expected to achieve complex temporal task objectives while ensuring safety. While learning-based methods such as <mark>reinforcement learning</mark> are popular for training single and multi-agent autonomous systems under user-specified and state-based reward functions, applying these methods to satisfy <mark>trajectory-level task objectives</mark> is a challenging problem.</p>
+                    <p>Our first contribution is the use of <mark>weighted automata</mark> to specify trajectory-level objectives, such that maximal paths induced in the weighted automaton correspond to desired trajectory-level behaviors. We show how weighted automata-based specifications go beyond timeliness properties focused on deadlines to performance properties such as <mark>expeditiousness</mark>. Our second contribution is the use of <mark>evolutionary game theory</mark> as a multi-agent path planning mechanism that produces trajectories satisfying the weighted automaton specification.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
             <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:UeHWp8X0CEIC" target="_blank" rel="noopener">Systematic Translation from Natural Language Robot Task Descriptions to STL</a></div>
             <div class="pub-venue">AISoLA, 2024</div>
-            <div class="pub-authors">S. Mohammadinejad, <strong>S. Paul</strong>, Y. Xia, V. Kudulkar, J. Deshmukh</div>
+            <div class="pub-authors">S. Mohammadinejad, <strong>S. Paul</strong>, Y. Xia, V. Kudalkar, J. Thomason, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p><mark>Natural language</mark> is an intuitive way for humans to communicate formal requirements of <mark>cyber-physical systems</mark>, such as safety specifications, performance requirements, and task objectives with autonomous CPS such as robots. While natural language (NL) is ambiguous, real world tasks and their safety requirements need to be communicated unambiguously. <mark>Signal Temporal Logic (STL)</mark> is a formal logic that can serve as a versatile, expressive, and unambiguous formal language to describe robotic tasks.</p>
+                    <p>On one hand, existing work in using STL for the robotics domain typically requires end-users to express task specifications in STL, which is a challenge for non-expert users. On the other, translating from NL to STL specifications is currently restricted to specific fragments. In this work, we propose <mark>DialogueSTL</mark>, an explainable and interactive approach for learning correct and concise STL specifications from natural language descriptions.</p>
+                </div>
+            </details>
         </div>
 
         <div class="pub">
             <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener">Detection of Breast Cancer from Mammograms using a Hybrid Approach of Deep Learning and Linear Classification</a></div>
             <div class="pub-venue">ICSET (IEEE), 2018</div>
-            <div class="pub-authors"><strong>S. Paul</strong>, D. Gala, S. Agrawal, R. Rangnekar, D. Kalbande</div>
+            <div class="pub-authors">S. Agrawal, R. Rangnekar, D. Gala, <strong>S. Paul</strong>, D. Kalbande</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>Posing a threat to a large portion of the population on a worldwide scale, <mark>breast cancer</mark> is now a deleterious pandemic. Chances of survival greatly improve if detected early, giving us impetus to contribute to various methods of detection from a technical perspective. A tool used to detect and diagnose breast-related diseases is a digital <mark>mammogram</mark>. The main purpose of this paper is to detect the probability of early stage breast cancer detection using mammography images.</p>
+                    <p>These mammograms were pre-processed using the <mark>CLAHE</mark> technique. In order to detect masses from the aforementioned mammograms, a <mark>hybrid approach</mark> has been employed: combining a <mark>neural network</mark> with a <mark>linear classifier</mark>. Deep Learning model <mark>VGG16</mark>, based on <mark>convolutional neural networks</mark>, was used for <mark>feature extraction</mark>, which were then fed into linear classifiers.</p>
+                </div>
+            </details>
         </div>
 
     </div>
