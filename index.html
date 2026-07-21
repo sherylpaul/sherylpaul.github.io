@@ -498,21 +498,6 @@
 
         <div class="pub">
             <div class="pub-title">
-                Neuro-Symbolic Planning for Multi-Agent Systems using Differentiable Spatio-Temporal Logic
-            </div>
-            <div class="pub-venue">NeuS 2026</div>
-            <div class="pub-authors">V. Kudalkar, <strong>S. Paul</strong>, N. Hashemi, J. V. Deshmukh</div>
-            <details class="pub-details">
-                <summary>Abstract</summary>
-                <div class="pub-abstract">
-                    <p>Modern autonomous planning methods rely heavily on <mark>differentiable predictive models</mark> of agent and world dynamics, enabling gradient-based optimization through neural pipelines. In parallel, <mark>temporal logic</mark> formalisms provide expressive and unambiguous symbolic specifications of high-level task objectives. However, there is work to be done in unifying differentiable dynamics with expressive multi-agent spatio-temporal specifications, particularly in settings where the underlying interaction graph evolves with agent states.</p>
-                    <p>Hence, we present a <mark>neuro-symbolic framework</mark> for multi-agent planning under <mark>Spatio-Temporal Reach and Escape Logic (STREL)</mark> specifications. We introduce <mark>smooth adjacency graph constructions</mark> that enable differentiation through dynamic interaction topologies, and propose <mark>STREL-Net</mark>, a <mark>Graph Neural Network (GNN)</mark>-based exact encoding of STREL quantitative semantics for gradient-based trajectory optimization. We evaluate our method in a customized SwarmLab environment and compare against <mark>SMT</mark>- and <mark>MILP</mark>-based STREL synthesis approaches across multiple specifications, linear and non-linear dynamics, varying team sizes, and settings with and without quadratic optimization objectives. Across all configurations, our approach consistently achieves substantially lower runtimes and remains feasible even in regimes where MILP and SMT formulations either become intractable or fail to solve.</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="pub">
-            <div class="pub-title">
                 <a href="https://arxiv.org/abs/2603.17155" target="_blank" rel="noopener">On Online Control of Opinion Dynamics</a>
             </div>
             <div class="pub-venue">ACC 2026</div>
@@ -528,7 +513,22 @@
 
         <div class="pub">
             <div class="pub-title">
-                An Algebraic Framework for Quantitative Semantics of Spatio-Temporal Logic with Graph Operators
+                Multi-Agent Planning with Spatio-Temporal and Topological Constraints using STL-GO
+            </div>
+            <div class="pub-venue">FMCAD 2026</div>
+            <div class="pub-authors"><strong>S. Paul</strong>*, V. Kudalkar*, A. Balakrishnan, L. Lindemann, A. Speranzon, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>Multi-agent planning problems arise in a variety of engineering applications, such as <mark>multi-robot wildfire fighting</mark> and unmanned aerial inspection in factories. A particular challenge is the existence of <mark>spatio-temporal</mark> (i.e., when an agent should do what) and <mark>topological constraints</mark> (i.e., how agents should interact), as typically formalized via the notion of graphs. We focus here on <mark>spatio-temporal logic with graph operators (STL-GO)</mark>, a recent formalism that allows to reason over multiple agents and their topologies, such as sensing, communication, and task topologies.</p>
+                    <p>In this paper, we consider the problem of planning multi-agent paths that satisfy constraints written in STL-GO. We present two solutions to this problem based on <mark>mixed integer programming (MIP)</mark> and <mark>satisfiability modulo theory (SMT)</mark> solving with soundness guarantees. We provide a unified interface for specifying agents, their graph topologies, and the STL-GO specification, enabling seamless use of both methods and facilitating direct comparison between them. We evaluate both encodings on a <mark>multi-UAV search-and-rescue</mark> benchmark, ablating over team size and graph complexity highlighting the expressiveness of the proposed encodings under dynamic multi-graph interactions.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Lu7aJZkAAAAJ&amp;citation_for_view=Lu7aJZkAAAAJ:Tyk-4Ss8FVUC" target="_blank" rel="noopener">An Algebraic Framework for Quantitative Semantics of Spatio-Temporal Logic with Graph Operators</a>
             </div>
             <div class="pub-venue">QEST-FORMATS 2026</div>
             <div class="pub-authors"><strong>S. Paul</strong>*, V. Kudalkar*, A. Balakrishnan*, T. Wu, L. Lindemann, J. V. Deshmukh</div>
@@ -537,6 +537,50 @@
                 <div class="pub-abstract">
                     <p><mark>Spatio-Temporal Logic with Graph Operators (STL-GO)</mark> extends <mark>Signal Temporal Logic (STL)</mark> to multi-agent systems by introducing <mark>graph operators</mark> that reason about the number of neighboring agents satisfying a property, and multi-agent quantifiers. While Boolean semantics for STL-GO are well-defined, <mark>quantitative semantics</mark> have not been developed. Existing quantitative semantics for spatio-temporal logics such as <mark>STREL</mark> are insufficient for the counting constraints in STL-GO's graph operators.</p>
                     <p>Thus, we develop quantitative semantics for STL-GO, as a <mark>layered algebraic construction</mark> that separates temporal aggregation from graph-operator aggregation (governed by an abstract accumulator with a monotone fold and readout). We prove that <mark>soundness and completeness</mark> of the full semantics reduce to monotonicity conditions on these components, and show that standard min-max and Boolean instantiations satisfy them automatically. We implement the framework and evaluate it on two multi-agent environments: a 2D bounded region with stochastic <mark>Dubins-car dynamics</mark> and a 3D <mark>Earth-satellite system</mark>, under four semantic instantiations, demonstrating the tradeoffs between accumulator choices and reporting scalability in the number of agents and time horizon.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">
+                Neuro-Symbolic Planning for Multi-Agent Systems using Differentiable Spatio-Temporal Logic
+            </div>
+            <div class="pub-venue">NeuS 2026</div>
+            <div class="pub-authors">V. Kudalkar, <strong>S. Paul</strong>, N. Hashemi, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>Modern autonomous planning methods rely heavily on <mark>differentiable predictive models</mark> of agent and world dynamics, enabling gradient-based optimization through neural pipelines. In parallel, <mark>temporal logic</mark> formalisms provide expressive and unambiguous symbolic specifications of high-level task objectives. However, there is work to be done in unifying differentiable dynamics with expressive multi-agent spatio-temporal specifications, particularly in settings where the underlying interaction graph evolves with agent states.</p>
+                    <p>Hence, we present a <mark>neuro-symbolic framework</mark> for multi-agent planning under <mark>Spatio-Temporal Reach and Escape Logic (STREL)</mark> specifications. We introduce <mark>smooth adjacency graph constructions</mark> that enable differentiation through dynamic interaction topologies, and propose <mark>STREL-Net</mark>, a <mark>Graph Neural Network (GNN)</mark>-based exact encoding of STREL quantitative semantics for gradient-based trajectory optimization. We evaluate our method in a customized SwarmLab environment and compare against <mark>SMT</mark>- and <mark>MILP</mark>-based STREL synthesis approaches across multiple specifications, linear and non-linear dynamics, varying team sizes, and settings with and without quadratic optimization objectives. Across all configurations, our approach consistently achieves substantially lower runtimes and remains feasible even in regimes where MILP and SMT formulations either become intractable or fail to solve.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">
+                Multi-agent Planning in Stochastic Dynamic Environments under Partial Observability Guided by Spatio-temporal Logic Requirements
+            </div>
+            <div class="pub-venue">RV 2026 <span class="badge badge-pending">Under Submission</span></div>
+            <div class="pub-authors">V. Kudalkar*, <strong>S. Paul</strong>*, S. Bharambe, S. Shim, M. Castillo-Effen, A. Speranzon, S. Varadarajan, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p>We consider the <mark>multi-agent path planning</mark> problem in dynamically changing environments under <mark>spatio-temporal specifications</mark>. Each agent operates under <mark>partial observability</mark>, perceiving only the local state of the environment. To address this challenge, we propose a <mark>centralized planning framework</mark> that takes in each agent's observations of the world. Spatio-temporal objectives are encoded as constraints over trajectories of the agents. We formulate path planning as a <mark>dynamic programming</mark> problem over joint observation space, and generate plans that maximize the probability of satisfying the given spatio-temporal specification. We demonstrate the effectiveness of our approach in a customized <mark>3D grid wildfire simulator</mark>.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="pub">
+            <div class="pub-title">
+                Topology-Aware Congestion Pricing: Demand-Robust Routing using the Forman&ndash;Ricci Curvature
+            </div>
+            <div class="pub-venue"><span class="badge badge-pending">Under Submission</span></div>
+            <div class="pub-authors"><strong>S. Paul</strong>, S. J. Williams, K. Wang, X. Qin, R. Li, J. V. Deshmukh</div>
+            <details class="pub-details">
+                <summary>Abstract</summary>
+                <div class="pub-abstract">
+                    <p><mark>Congestion pricing</mark> is a widely used tool for improving efficiency in <mark>transportation networks</mark>, where decentralized route choices by individual users can lead to significant system-level inefficiencies. A classical solution is <mark>Pigouvian pricing</mark>, which achieves the system optimum. However, it is inherently demand-dependent and can lose effectiveness under <mark>demand shifts</mark>, particularly on structurally critical <mark>bottleneck edges</mark>.</p>
+                    <p>We propose a topology-aware regularization of the <mark>Beckmann potential</mark>, whose minimizer characterizes the <mark>Wardrop equilibrium</mark> induced by selfish routing. Our approach augments precomputed Pigouvian tolls with a structural penalty derived from <mark>Forman&ndash;Ricci curvature (FRC)</mark>, which captures bottleneck structure and can be computed offline. We show that the resulting equilibrium is well-defined, and that increasing the regularization parameter reduces aggregate flow on penalized edges. We further show that on modular networks, FRC assigns the largest penalties to <mark>bridge edges</mark> that all inter-region traffic must traverse. Experiments on eight real-world networks under targeted and uniform demand perturbations show that the method reduces bottleneck flow while maintaining near-optimal efficiency. Compared to <mark>edge betweenness</mark>, FRC achieves comparable bottleneck reduction at substantially lower computational cost.</p>
                 </div>
             </details>
         </div>
@@ -552,50 +596,6 @@
                 <div class="pub-abstract">
                     <p>Existing models of <mark>mixed-autonomy weaving ramps</mark> characterize how altruistic <mark>connected and automated vehicles (CAVs)</mark> can improve traffic efficiency at the population level, but provide limited insight into how such behavior emerges from decentralized vehicle interactions or how it is affected by finite populations, heterogeneous preferences, and imperfect information. We develop an <mark>agent-based model</mark> of a macroscopic weaving-ramp framework in which individual vehicles adapt their lane choices using an <mark>evolutionary game-theoretic</mark> update rule and altruism-based objectives, providing a microscopic interpretation of the original <mark>Wardrop model</mark>. We prove convergence of the <mark>decentralized dynamics</mark> to the unique <mark>equilibrium</mark> predicted by the macroscopic theory.</p>
                     <p>Beyond reproducing aggregate equilibrium behavior, the framework enables the study of deployment-level questions that cannot be addressed by static analysis. Simulation results demonstrate close agreement with the macroscopic predictions while revealing how convergence rates, adaptation to changing traffic conditions, heterogeneous altruism levels among CAVs, and imperfect state information influence system performance and the distribution of altruistic burden across vehicles. These results provide a bridge between equilibrium traffic theory and decentralized mixed-autonomy deployment.</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="pub">
-            <div class="pub-title">
-                Multi-Agent Planning with Spatio-Temporal and Topological Constraints using STL-GO
-            </div>
-            <div class="pub-venue">FMCAD 2026 <span class="badge badge-pending">Under Submission</span></div>
-            <div class="pub-authors"><strong>S. Paul</strong>*, V. Kudalkar*, A. Balakrishnan, L. Lindemann, A. Speranzon, J. V. Deshmukh</div>
-            <details class="pub-details">
-                <summary>Abstract</summary>
-                <div class="pub-abstract">
-                    <p>Multi-agent planning problems arise in a variety of engineering applications, such as <mark>multi-robot wildfire fighting</mark> and unmanned aerial inspection in factories. A particular challenge is the existence of <mark>spatio-temporal</mark> (i.e., when an agent should do what) and <mark>topological constraints</mark> (i.e., how agents should interact), as typically formalized via the notion of graphs. We focus here on <mark>spatio-temporal logic with graph operators (STL-GO)</mark>, a recent formalism that allows to reason over multiple agents and their topologies, such as sensing, communication, and task topologies.</p>
-                    <p>In this paper, we consider the problem of planning multi-agent paths that satisfy constraints written in STL-GO. We present two solutions to this problem based on <mark>mixed integer programming (MIP)</mark> and <mark>satisfiability modulo theory (SMT)</mark> solving with soundness guarantees. We provide a unified interface for specifying agents, their graph topologies, and the STL-GO specification, enabling seamless use of both methods and facilitating direct comparison between them. We evaluate both encodings on a <mark>multi-UAV search-and-rescue</mark> benchmark, ablating over team size and graph complexity highlighting the expressiveness of the proposed encodings under dynamic multi-graph interactions.</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="pub">
-            <div class="pub-title">
-                Topology-Aware Congestion Pricing: Demand-Robust Routing using the Forman&ndash;Ricci Curvature
-            </div>
-            <div class="pub-venue">CDC 2026 <span class="badge badge-pending">Under Submission</span></div>
-            <div class="pub-authors"><strong>S. Paul</strong>, S. J. Williams, K. Wang, X. Qin, R. Li, J. V. Deshmukh</div>
-            <details class="pub-details">
-                <summary>Abstract</summary>
-                <div class="pub-abstract">
-                    <p><mark>Congestion pricing</mark> is a widely used tool for improving efficiency in <mark>transportation networks</mark>, where decentralized route choices by individual users can lead to significant system-level inefficiencies. A classical solution is <mark>Pigouvian pricing</mark>, which achieves the system optimum. However, it is inherently demand-dependent and can lose effectiveness under <mark>demand shifts</mark>, particularly on structurally critical <mark>bottleneck edges</mark>.</p>
-                    <p>We propose a topology-aware regularization of the <mark>Beckmann potential</mark>, whose minimizer characterizes the <mark>Wardrop equilibrium</mark> induced by selfish routing. Our approach augments precomputed Pigouvian tolls with a structural penalty derived from <mark>Forman&ndash;Ricci curvature (FRC)</mark>, which captures bottleneck structure and can be computed offline. We show that the resulting equilibrium is well-defined, and that increasing the regularization parameter reduces aggregate flow on penalized edges. We further show that on modular networks, FRC assigns the largest penalties to <mark>bridge edges</mark> that all inter-region traffic must traverse. Experiments on eight real-world networks under targeted and uniform demand perturbations show that the method reduces bottleneck flow while maintaining near-optimal efficiency. Compared to <mark>edge betweenness</mark>, FRC achieves comparable bottleneck reduction at substantially lower computational cost.</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="pub">
-            <div class="pub-title">
-                Multi-agent Planning in Stochastic Dynamic Environments under Partial Observability Guided by Spatio-temporal Logic Requirements
-            </div>
-            <div class="pub-venue">RV 2026 <span class="badge badge-pending">Under Submission</span></div>
-            <div class="pub-authors">V. Kudalkar*, <strong>S. Paul</strong>*, S. Bharambe, S. Shim, M. Castillo-Effen, A. Speranzon, S. Varadarajan, J. V. Deshmukh</div>
-            <details class="pub-details">
-                <summary>Abstract</summary>
-                <div class="pub-abstract">
-                    <p>We consider the <mark>multi-agent path planning</mark> problem in dynamically changing environments under <mark>spatio-temporal specifications</mark>. Each agent operates under <mark>partial observability</mark>, perceiving only the local state of the environment. To address this challenge, we propose a <mark>centralized planning framework</mark> that takes in each agent's observations of the world. Spatio-temporal objectives are encoded as constraints over trajectories of the agents. We formulate path planning as a <mark>dynamic programming</mark> problem over joint observation space, and generate plans that maximize the probability of satisfying the given spatio-temporal specification. We demonstrate the effectiveness of our approach in a customized <mark>3D grid wildfire simulator</mark>.</p>
                 </div>
             </details>
         </div>
