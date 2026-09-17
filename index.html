@@ -163,6 +163,31 @@
             margin-bottom: 1.5rem;
         }
 
+        .job-banner {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 1.1rem;
+            padding: 0.55rem 0.9rem;
+            background: var(--red-faint);
+            border: 1px solid rgba(139, 26, 26, 0.22);
+            border-left: 3px solid var(--red);
+            border-radius: 4px;
+            color: var(--text);
+            font-size: 0.88rem;
+            line-height: 1.45;
+            text-decoration: none;
+        }
+        .job-banner:hover { background: rgba(139, 26, 26, 0.12); }
+        .job-banner strong { color: var(--red); }
+        .job-dot {
+            flex-shrink: 0;
+            width: 8px; height: 8px;
+            margin-top: 0.4rem;
+            border-radius: 50%;
+            background: var(--red);
+        }
+
         .links { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 
         .links a {
@@ -440,6 +465,8 @@
         }
 
         .misc-list li strong { color: var(--text-bright); }
+        .misc-list li a { color: var(--red); text-decoration: underline; text-underline-offset: 2px; }
+        .misc-list li a:hover { color: var(--red-light); }
 
         footer {
             border-top: 1px solid var(--border);
@@ -478,6 +505,10 @@
         <img src="sheryl-paul.jpg" alt="Sheryl Paul">
     </div>
     <div class="hero-text">
+        <a class="job-banner" href="Sheryl_Paul_CV.pdf" target="_blank" rel="noopener">
+            <span class="job-dot" aria-hidden="true"></span>
+            <span><strong>On the job market.</strong> Graduating December 2026 and looking for postdoctoral and research positions starting Spring 2027. <u>View my CV</u></span>
+        </a>
         <h1>Sheryl Paul</h1>
         <h2>PhD Candidate, Computer Science · University of Southern California</h2>
         <p>My research is about how collective behavior emerges in multi-agent systems, and how we can specify, monitor, and steer that behavior with formal guarantees. I draw on control theory, formal methods, and game theory to connect what individual agents do to the population-level patterns they produce across opinion dynamics, transportation and mobility, formal methods for search and rescue settings, and population models with evolutionary game theory.</p>
@@ -486,7 +517,7 @@
                 <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 sherylpa@usc.edu
             </a>
-            <a href="Sheryl_Resume-5.pdf" target="_blank" rel="noopener" class="cv-link">
+            <a href="Sheryl_Paul_CV.pdf" target="_blank" rel="noopener" class="cv-link">
                 <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM8 14h8v1.5H8V14zm0 3h8v1.5H8V17zm0-6h3v1.5H8V11z"/></svg>
                 CV
             </a>
@@ -557,7 +588,7 @@
             <div class="pub-title">
                 <a href="https://arxiv.org/abs/2603.17155" target="_blank" rel="noopener">On Online Control of Opinion Dynamics</a>
             </div>
-            <div class="pub-venue">ACC 2026</div>
+            <div class="pub-venue">American Control Conference (ACC), 2026</div>
             <div class="pub-authors"><strong>S. Paul</strong>, L. C. Juarez, J. Deshmukh, K. Savla</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -572,7 +603,7 @@
             <div class="pub-title">
                 <a href="FMCAD-2026/STL_GO_Planning_arxiv.pdf" target="_blank" rel="noopener">Multi-Agent Planning with Spatio-Temporal and Topological Constraints using STL-GO</a>
             </div>
-            <div class="pub-venue">FMCAD 2026</div>
+            <div class="pub-venue">Formal Methods in Computer-Aided Design (FMCAD), 2026</div>
             <div class="pub-authors"><strong>S. Paul</strong>*, V. Kudalkar*, A. Balakrishnan, L. Lindemann, A. Speranzon, J. V. Deshmukh</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -587,7 +618,7 @@
             <div class="pub-title">
                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Lu7aJZkAAAAJ&amp;citation_for_view=Lu7aJZkAAAAJ:Tyk-4Ss8FVUC" target="_blank" rel="noopener">An Algebraic Framework for Quantitative Semantics of Spatio-Temporal Logic with Graph Operators</a>
             </div>
-            <div class="pub-venue">QEST-FORMATS 2026</div>
+            <div class="pub-venue">International Joint Conference on Quantitative Evaluation of Systems and Formal Modeling and Analysis of Timed Systems (QEST+FORMATS), 2026</div>
             <div class="pub-authors"><strong>S. Paul</strong>*, V. Kudalkar*, A. Balakrishnan*, T. Wu, L. Lindemann, J. V. Deshmukh</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -602,7 +633,7 @@
             <div class="pub-title">
                 Neuro-Symbolic Planning for Multi-Agent Systems using Differentiable Spatio-Temporal Logic
             </div>
-            <div class="pub-venue">NeuS 2026</div>
+            <div class="pub-venue">International Conference on Neuro-Symbolic Systems (NeuS), 2026</div>
             <div class="pub-authors">V. Kudalkar, <strong>S. Paul</strong>, N. Hashemi, J. V. Deshmukh</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -617,7 +648,7 @@
             <div class="pub-title">
                 Multi-agent Planning in Stochastic Dynamic Environments under Partial Observability Guided by Spatio-temporal Logic Requirements
             </div>
-            <div class="pub-venue">RV 2026 <span class="badge badge-pending">Under Submission</span></div>
+            <div class="pub-venue"><span class="badge badge-pending">Under Submission</span></div>
             <div class="pub-authors">V. Kudalkar*, <strong>S. Paul</strong>*, S. Bharambe, S. Shim, M. Castillo-Effen, A. Speranzon, S. Varadarajan, J. V. Deshmukh</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -629,7 +660,7 @@
 
         <div class="pub">
             <div class="pub-title">
-                Topology-Aware Congestion Pricing: Demand-Robust Routing using the Forman&ndash;Ricci Curvature
+                <a href="https://arxiv.org/abs/2609.14980" target="_blank" rel="noopener">Topology-Aware Congestion Pricing: Demand-Robust Routing using the Forman&ndash;Ricci Curvature</a>
             </div>
             <div class="pub-venue"><span class="badge badge-pending">Under Submission</span></div>
             <div class="pub-authors"><strong>S. Paul</strong>, S. J. Williams, K. Wang, X. Qin, R. Li, J. V. Deshmukh</div>
@@ -646,7 +677,7 @@
             <div class="pub-title">
                 Agent-Based Evolutionary Dynamics for Mixed Autonomy Weaving Ramps
             </div>
-            <div class="pub-venue">CPHS 2026 <span class="badge badge-pending">Under Submission</span></div>
+            <div class="pub-venue">IFAC Workshop on Cyber-Physical Human Systems (CPHS), 2026 <span class="badge badge-pending">Under Submission</span></div>
             <div class="pub-authors"><strong>S. Paul</strong>, K. Wang, R. Li, J. V. Deshmukh</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -661,7 +692,7 @@
             <div class="pub-title">
                 <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:IjCSPb-OGe4C" target="_blank" rel="noopener">Monitoring Spatially Distributed Cyber-Physical Systems with Alternating Finite Automata</a>
             </div>
-            <div class="pub-venue">HSCC 2025 <span class="badge badge-award">Best Paper</span></div>
+            <div class="pub-venue">ACM International Conference on Hybrid Systems: Computation and Control (HSCC), 2025 <span class="badge badge-award">Best Paper</span></div>
             <div class="pub-authors">A. Balakrishnan, <strong>S. Paul</strong>, S. Silvetti, L. Nenzi, J. V. Deshmukh</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -674,9 +705,8 @@
 
         <div class="pub">
             <div class="pub-title">
-                ABM-SIRTEM: A Hybrid Agent-Based and Epidemiological Model for Pandemic Response
+                <a href="https://arxiv.org/abs/2609.18223" target="_blank" rel="noopener">ABM-SIRTEM: A Hybrid Agent-Based and Epidemiological Model for Pandemic Response</a>
             </div>
-            <div class="pub-venue"><span class="badge badge-pending">Ongoing Work</span></div>
             <div class="pub-authors"><strong>S. Paul</strong>, S. J. Williams, P. K. Biswas, G. Pedrielli, J. Deshmukh</div>
         </div>
 
@@ -695,7 +725,7 @@
 
         <div class="pub">
             <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener">Multi-agent Path Finding for Timed Tasks using Evolutionary Games</a></div>
-            <div class="pub-venue">QEST-FORMATS, 2024</div>
+            <div class="pub-venue">International Joint Conference on Quantitative Evaluation of Systems and Formal Modeling and Analysis of Timed Systems (QEST+FORMATS), 2024</div>
             <div class="pub-authors"><strong>S. Paul</strong>, A. Balakrishnan, X. Qin, J. V. Deshmukh</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -708,7 +738,7 @@
 
         <div class="pub">
             <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:UeHWp8X0CEIC" target="_blank" rel="noopener">Systematic Translation from Natural Language Robot Task Descriptions to STL</a></div>
-            <div class="pub-venue">AISoLA, 2024</div>
+            <div class="pub-venue">International Conference on Bridging the Gap between AI and Reality (AISoLA), 2024</div>
             <div class="pub-authors">S. Mohammadinejad, <strong>S. Paul</strong>, Y. Xia, V. Kudalkar, J. Thomason, J. V. Deshmukh</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -721,7 +751,7 @@
 
         <div class="pub">
             <div class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Lu7aJZkAAAAJ&citation_for_view=Lu7aJZkAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener">Detection of Breast Cancer from Mammograms using a Hybrid Approach of Deep Learning and Linear Classification</a></div>
-            <div class="pub-venue">ICSET (IEEE), 2018</div>
+            <div class="pub-venue">IEEE International Conference on System Engineering and Technology (ICSET), 2018</div>
             <div class="pub-authors">S. Agrawal, R. Rangnekar, D. Gala, <strong>S. Paul</strong>, D. Kalbande</div>
             <details class="pub-details">
                 <summary>Abstract</summary>
@@ -849,6 +879,7 @@
     <ul class="misc-list">
         <li><strong>Community Volunteering</strong> &mdash; TAPkids Teacher (2022&ndash;26), Union Rescue Mission, School on Wheels, Dream Center LA, Rain of Mercy, Mentor for Change, Nanoom Rehab Center</li>
         <li><strong>Vocal Arts</strong> &mdash; USC Thornton School of Music (Grade A, 4 semesters)</li>
+        <li><strong>Reading</strong> &mdash; I&rsquo;m reading a book a week this year and I&rsquo;m always looking for recommendations. Find me on <a href="https://www.goodreads.com/sherylpaul2402" target="_blank" rel="noopener">Goodreads</a>!</li>
     </ul>
 </section>
 
